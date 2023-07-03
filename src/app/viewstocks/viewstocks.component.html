@@ -1,0 +1,30 @@
+<a class="nav-link" routerLink="/addinvestment">Add Investment</a>
+<div class="list-group">
+    <a routerLink="viewstockdetails" class="list-group-item list-group-item-action flex-column align-items-start " *ngFor="let stock of stocks| async">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{stock.stockSymbol}}</h5>
+        <h5 class="mb-1">{{stock.stockName}}</h5>
+        <h5 class="mb-1">{{stock.stockPrice}}</h5>
+        <h5 class="mb-1">{{stock.stockQuantity}}</h5>
+        <h5 class="mb-1">{{stock.stockPrice*stock.stockQuantity}}</h5>
+        <h5 class="mb-1">{{getStockprice(stock.stockSymbol)}}</h5>
+        <!-- <h5 class="mb-1">{{currprices*stock.stockQuantity | async}}</h5> -->
+        <h5 class="mb-1">{{((cp*stock.stockQuantity) - (stock.stockPrice*stock.stockQuantity))/100}}</h5>
+        <span><a (click)="deleteStock(stock.stockid)">X</a></span>
+      </div>
+    </a>
+    
+  </div>
+
+
+  <!-- <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{stock1.stockSymbol}}</h5>
+    <h5 class="mb-1">{{stock1.stockName}}</h5>
+    <h5 class="mb-1">{{stock1.stockPrice}}</h5>
+    <h5 class="mb-1">{{stock1.stockQuantity}}</h5>
+    <h5 class="mb-1">{{stock1.stockPrice*stock1.stockQuantity}}</h5>
+    <h5 class="mb-1">{{getStockprice(stock1.stockSymbol)}}</h5>
+    <h5 class="mb-1">{{cp*stock1.stockQuantity}}</h5>
+    <h5 class="mb-1">{{((cp*stock1.stockQuantity) - (stock1.stockPrice*stock1.stockQuantity))/100}}</h5>
+    <span><a (click)="deleteStock(stock1.stockid)">X</a></span>
+  </div> -->
